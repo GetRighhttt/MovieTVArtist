@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".presentation.HomeActivity">
+
+    <data>
+        <variable
+            name="mainBindingXML"
+            type="com.example.movietvartist.presentation.HomeActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_background">
+
+        <TextView
+            android:id="@+id/tv_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/rectangle_border"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/popular_movies_tv_shows_and_actors"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view_border"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="25dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_home" />
+
+        <TextView
+            android:id="@+id/tv_about_movies"
+            android:layout_width="154dp"
+            android:layout_height="89dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rectangle_border"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/get_a_list_of_our_most_popular_movies"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_border" />
+
+        <TextView
+            android:id="@+id/tv_about_shows"
+            android:layout_width="154dp"
+            android:layout_height="89dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/rectangle_border"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/get_a_list_of_our_most_popular_shows"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_border" />
+
+        <TextView
+            android:id="@+id/tv_actor_about"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="45dp"
+            android:background="@drawable/rectangle_border"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/and_get_information_about_some_of_your_favorite_actors"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.531"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_about_movies" />
+
+        <TextView
+            android:id="@+id/tv_choose_button"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_margin="45dp"
+            android:background="@drawable/rectangle_border"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/choose_which_list_you_would_like_to_see_here_are_your_options"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_actor_about" />
+
+
+        <ImageView
+            android:id="@+id/first_arrow_button"
+            android:layout_width="65dp"
+            android:layout_height="55dp"
+            android:layout_margin="30dp"
+            android:contentDescription="@string/pick_a_button"
+            app:layout_constraintEnd_toStartOf="@id/middle_arrow_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_choose_button"
+            app:srcCompat="@drawable/ic_baseline_arrow_downward_24" />
+
+        <ImageView
+            android:id="@+id/middle_arrow_button"
+            android:layout_width="65dp"
+            android:layout_height="55dp"
+            android:layout_margin="30dp"
+            android:contentDescription="@string/pick_a_button"
+            app:layout_constraintEnd_toStartOf="@id/last_arrow_button"
+            app:layout_constraintStart_toEndOf="@id/first_arrow_button"
+            app:layout_constraintTop_toBottomOf="@id/tv_choose_button"
+            app:srcCompat="@drawable/ic_baseline_arrow_downward_24" />
+
+        <ImageView
+            android:id="@+id/last_arrow_button"
+            android:layout_width="60dp"
+            android:layout_height="55dp"
+            android:layout_margin="30dp"
+            android:contentDescription="@string/pick_a_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/middle_arrow_button"
+            app:layout_constraintTop_toBottomOf="@id/tv_choose_button"
+            app:srcCompat="@drawable/ic_baseline_arrow_downward_24" />
+
+        <FrameLayout
+            android:id="@+id/frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/last_arrow_button">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+
+                <Button
+                    android:id="@+id/movie_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_margin="15dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/black"
+                    android:padding="5dp"
+                    android:text="@string/movies"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:textStyle="italic"
+                    style="?android:attr/buttonBarButtonStyle"/>
+
+                <Button
+                    android:id="@+id/tvshow_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_margin="15dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/black"
+                    android:padding="5dp"
+                    android:text="@string/shows"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:textStyle="italic"
+                    style="?android:attr/buttonBarButtonStyle"/>
+
+                <Button
+                    android:id="@+id/actor_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_margin="15dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/black"
+                    android:padding="5dp"
+                    android:text="@string/actors"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:textStyle="italic"
+                    style="?android:attr/buttonBarButtonStyle"/>
+
+            </LinearLayout>
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
