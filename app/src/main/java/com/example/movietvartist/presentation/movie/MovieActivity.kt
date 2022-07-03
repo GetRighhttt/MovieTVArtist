@@ -3,6 +3,9 @@ package com.example.movietvartist.presentation.movie
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -43,7 +46,7 @@ class MovieActivity : AppCompatActivity() {
             .inject(this)
 
         /**
-         * Now we're using our ViewModelProvider to get an instance of MovieViewModel.
+         * Now we're using our ViewModelProvider to get an instance of ViewModel.
          */
         movieViewModel = ViewModelProvider(this, factory)[MovieViewModel::class.java]
         initRecyclerView()
@@ -79,12 +82,73 @@ class MovieActivity : AppCompatActivity() {
                 if (it != null) {
                     adapter.setList(it)
                     adapter.notifyDataSetChanged()
-                    binding.movieProgressBar.visibility = View.GONE
+                    movieProgressBar.visibility = View.GONE
                 } else {
                     movieProgressBar.visibility = View.GONE
                     Toast.makeText(
                         applicationContext,
                         "No Data available.", Toast.LENGTH_LONG
+                    ).show()
+                }
+            })
+        }
+    }
+
+    /**
+     * In order for us to activate the update button to show in the top right corner
+     * of the activity, we have to override onCreateOptionsMenu() and
+     * onOptionsItemSelected().
+     */
+
+
+    /*
+    Method to inflate the menu item(update button).
+     */
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.update, menu)
+        return true
+    }
+
+    /*
+    Now we will call our updateMovies() function and set the value to true when it is
+    selected.
+
+    If not selected, return the regular item.(nothing)
+     */
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_update -> {
+                updateMovies()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    /*
+    Method to actual update the items in the layout with the update button on the menu.
+
+    We're first going to set the visibility of the progress bar and then invoke the
+    update movies function from our View Model and get the new list of movies as live
+    data.
+
+    Check if null, if not, set the list and notify data has changed using adapter method
+     */
+    private fun updateMovies() {
+        binding.apply {
+            movieProgressBar.visibility = View.VISIBLE
+            val response = movieViewModel.updateMovies()
+            response.observe(this@MovieActivity, Observer {
+                if (it != null) {
+                    adapter.setList(it)
+                    adapter.notifyDataSetChanged()
+                    binding.movieProgressBar.visibility = View.INVISIBLE
+                } else {
+                    movieProgressBar.visibility = View.GONE
+                    Toast.makeText(
+                        applicationContext,
+                        "Update didn't work.", Toast.LENGTH_LONG
                     ).show()
                 }
             })

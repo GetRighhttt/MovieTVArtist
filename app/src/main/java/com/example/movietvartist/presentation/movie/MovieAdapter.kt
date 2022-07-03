@@ -19,13 +19,13 @@ import java.util.concurrent.Flow
  * Extend ViewHolder class for the inner class, and Adapter for outer.
  */
 
-class MovieAdapter(): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>(){
+class MovieAdapter() : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
     /**
      * Must first define an array list of your data type.
      * Then create a method to set that list.
      */
     private val movieList = ArrayList<Movie>()
-    fun setList(movies:List<Movie>) {
+    fun setList(movies: List<Movie>) {
         movieList.clear()
         movieList.addAll(movies)
     }
@@ -41,27 +41,26 @@ class MovieAdapter(): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>(){
      * I.E. fun bind() called by onBindViewHolder to bind its views.
      */
 
-    class MovieViewHolder(val binding: ListItemBinding)
-        : RecyclerView.ViewHolder(binding.root) {
+    class MovieViewHolder(val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-            fun bind(movie: Movie) {
-                binding.apply {
-                    titleTextView.text = movie.title
-                    descriptionTextView.text = movie.overview
-                    releaseDateTextView.text = movie.releaseDate
+        fun bind(movie: Movie) {
+            binding.apply {
+                titleTextView.text = movie.title
+                descriptionTextView.text = movie.overview
+                releaseDateTextView.text = movie.releaseDate
 
-                    /**
-                     * according to the documentation, we have to add the source in order
-                     * to display the image.
-                     *
-                     * Then we use Glide to help display the image from the URL.
-                     */
-                    val posterURL = "https://image.tmdb.org/t/p/w500"+ movie.posterPath
-                    Glide.with(binding.imageView.context)
-                        .load(posterURL)
-                        .into(binding.imageView)
-                }
+                /**
+                 * according to the documentation, we have to add the source in order
+                 * to display the image.
+                 *
+                 * Then we use Glide to help display the image from the URL.
+                 */
+                val posterURL = "https://image.tmdb.org/t/p/w500" + movie.posterPath
+                Glide.with(binding.imageView.context)
+                    .load(posterURL)
+                    .into(binding.imageView)
             }
+        }
 
         /**
          * Get our linear layout ID so I can use it for animation in onBindViewHolder()
@@ -92,7 +91,7 @@ class MovieAdapter(): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>(){
      * This is where we inflate the list item using our companion object from our
      * inflateFrom method we created in the ViewHolder class.
      */
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) :
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
             MovieViewHolder = MovieViewHolder.inflateFrom(parent)
 
     /**
@@ -108,7 +107,8 @@ class MovieAdapter(): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>(){
         holder.bind(movieList[position])
         holder.linearListItem.startAnimation(
             AnimationUtils
-                .loadAnimation(holder.itemView.context, R.anim.favorite_anim))
+                .loadAnimation(holder.itemView.context, R.anim.favorite_anim)
+        )
     }
 
     /**
@@ -117,6 +117,6 @@ class MovieAdapter(): RecyclerView.Adapter<MovieAdapter.MovieViewHolder>(){
      * RecyclerView library will create separate rows based on the count.
      */
 
-    override fun getItemCount(): Int  = movieList.size
+    override fun getItemCount(): Int = movieList.size
 
 }

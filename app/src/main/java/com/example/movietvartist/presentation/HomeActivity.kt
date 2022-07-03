@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import com.example.movietvartist.R
-import com.example.movietvartist.databinding.ActivityActorBinding
 import com.example.movietvartist.databinding.ActivityMainBinding
 import com.example.movietvartist.presentation.actor.ActorActivity
 import com.example.movietvartist.presentation.movie.MovieActivity
@@ -34,8 +33,12 @@ class HomeActivity : AppCompatActivity() {
 
         /**
          * Set click listeners to go to other activities using our buttons.
+         *
          * And we also implement animations here!
-         * Show custom progress dialog if movie is clickable.
+         */
+
+        /*
+        Use movie button to go to movie activity.
          */
         binding.apply {
             movieButton.setOnClickListener {
@@ -45,9 +48,12 @@ class HomeActivity : AppCompatActivity() {
                     this@HomeActivity,
                     "Going to Movies!", Toast.LENGTH_LONG
                 ).show()
-                overridePendingTransition(R.anim.open_entry, R.anim.close_entry)
+                overridePendingTransition(R.anim.slide_in_left_animation, R.anim.slide_out_left)
             }
 
+            /*
+            Use tv button to Go to TvShow Activity.
+             */
 
             tvshowButton.setOnClickListener {
                 val intent = Intent(this@HomeActivity, TvShowActivity::class.java)
@@ -56,9 +62,12 @@ class HomeActivity : AppCompatActivity() {
                     this@HomeActivity,
                     "Going to TvShow!", Toast.LENGTH_LONG
                 ).show()
-                overridePendingTransition(R.anim.favorite_anim, R.anim.favorite_anim)
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right)
             }
 
+            /*
+            Use actor button to Go to Actor Activity.
+             */
 
             actorButton.setOnClickListener {
                 val intent = Intent(this@HomeActivity, ActorActivity::class.java)
@@ -67,7 +76,7 @@ class HomeActivity : AppCompatActivity() {
                     this@HomeActivity,
                     "Going to Actor!", Toast.LENGTH_LONG
                 ).show()
-                overridePendingTransition(R.anim.vertical_animation, R.anim.vertical_animation)
+                overridePendingTransition(R.anim.open_entry, R.anim.close_entry)
             }
 
         }
