@@ -18,4 +18,6 @@
     <string name="release_date">Release Date:</string>
     <string name="textviewA">TextView</string>
     <string name="update">Update</string>
+    <string name="textviewb">TextView</string>
+    <string name="image">Image</string>
 </resources>
