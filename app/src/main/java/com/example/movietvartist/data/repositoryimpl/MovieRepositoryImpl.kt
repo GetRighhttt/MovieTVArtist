@@ -11,8 +11,6 @@ import com.example.movietvartist.domain.repository.MovieRepository
  * This layer is responsible for implementing the methods outlined in our
  * repository layer.
  *
- * When we extend from our repository class, we will be allowed to override the
- * methods we created.
  *
  * get() returns the list of all the list.
  *
@@ -79,7 +77,7 @@ class MovieRepositoryImpl(
      * If there is no data, we must take data from the api and save it to the database.
      */
     suspend fun getMoviesFromDB():List<Movie> {
-        lateinit var movieList: List<Movie> // create reference to list of movies
+        lateinit var movieList: List<Movie>// create reference to list of movies
 
         try {
             movieList = movieLocalDataSource.getMoviesFromDB()

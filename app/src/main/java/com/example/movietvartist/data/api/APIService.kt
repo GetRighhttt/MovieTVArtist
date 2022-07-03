@@ -24,7 +24,7 @@ interface APIService {
     /**
      * Get request for all popular movies.
      */
-    @GET("/movie/popular")
+    @GET("3/movie/popular")
     suspend fun getMovies(
         @Query(
             "api_key"
