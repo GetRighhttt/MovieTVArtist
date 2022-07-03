@@ -58,7 +58,7 @@ class ActorActivity : AppCompatActivity() {
      *
      * bind the layout manager;
      *
-     * set the adapter, then set it to recycler view to Vertical.
+     * set the adapter, then set it to recycler view to Horizontal.
      */
     private fun initRecyclerView() {
         binding.apply {
@@ -101,7 +101,6 @@ class ActorActivity : AppCompatActivity() {
      * onOptionsItemSelected().
      */
 
-
     /*
     Method to inflate the menu item(update button).
      */
@@ -127,7 +126,7 @@ class ActorActivity : AppCompatActivity() {
     }
 
     /*
-   Method to actual update the items in the layout with the update button on the menu.
+   Method to actually update the items in the layout with the update button on the menu.
 
    We're first going to set the visibility of the progress bar and then invoke the
    update movies function from our View Model and get the new list of movies as live

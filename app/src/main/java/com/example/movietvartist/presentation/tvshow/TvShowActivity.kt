@@ -125,7 +125,7 @@ class TvShowActivity : AppCompatActivity() {
     }
 
     /*
-   Method to actual update the items in the layout with the update button on the menu.
+   Method to actually update the items in the layout with the update button on the menu.
 
    We're first going to set the visibility of the progress bar and then invoke the
    update movies function from our View Model and get the new list of movies as live
