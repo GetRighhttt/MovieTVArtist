@@ -13,4 +13,8 @@
     <string name="https_github_com_getrighhttthttps_github_com_getrighhttt">https://github.com/getrighhttthttps://github.com/getrighhttt</string>
     <string name="tvshows">TvShows!</string>
     <string name="moviesgg">Movies!</string>
+    <string name="description">Description:</string>
+    <string name="textview">TextView</string>
+    <string name="release_date">Release Date:</string>
+    <string name="textviewA">TextView</string>
 </resources>

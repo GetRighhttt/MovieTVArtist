@@ -34,7 +34,7 @@ interface APIService {
     /**
      * Get requests for all poplar Tv shows.
      */
-    @GET("/tv/popular")
+    @GET("3/tv/popular")
     suspend fun getTvShows(
         @Query(
             "api_key"
@@ -44,7 +44,7 @@ interface APIService {
     /**
      * Get requests for all popular actors.
      */
-    @GET("/person/popular")
+    @GET("3/person/popular")
     suspend fun getActors(
         @Query(
             "api_key"
