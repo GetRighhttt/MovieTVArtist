@@ -36,7 +36,7 @@ class ActorViewModel(
      *
      */
 
-    fun getActorsUseCase() = liveData {
+    fun getActors() = liveData {
         val actorList = getActorsUseCase.execute()
         emit(actorList)
     }
@@ -47,7 +47,7 @@ class ActorViewModel(
      * use case that we have already created.
      */
 
-    fun updateActorsUseCase() = liveData {
+    fun updateActors() = liveData {
         val actorList = updateActorsUseCase.execute()
         emit(actorList)
     }
