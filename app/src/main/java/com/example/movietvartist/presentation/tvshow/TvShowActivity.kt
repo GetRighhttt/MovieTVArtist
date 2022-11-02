@@ -2,10 +2,7 @@ package com.example.movietvartist.presentation.tvshow
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.view.View
+import android.view.*
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -38,6 +35,15 @@ class TvShowActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_tv_show)
 
+        /*
+  Hide action bar and theme(OPTIONAL).
+   */
+//        supportActionBar?.hide()
+//        this.window.setFlags(
+//            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//            WindowManager.LayoutParams.FLAG_FULLSCREEN
+//        )
+
         /**
          * Allowing ourselves access to inject into this activity.
          */
@@ -60,13 +66,16 @@ class TvShowActivity : AppCompatActivity() {
      */
     private fun initRecyclerView() {
         binding.apply {
-            tvRecyclerView.layoutManager = LinearLayoutManager(this@TvShowActivity,
-                LinearLayoutManager.VERTICAL, false)
+            tvRecyclerView.layoutManager = LinearLayoutManager(
+                this@TvShowActivity,
+                LinearLayoutManager.VERTICAL, false
+            )
             adapter = TvShowAdapter()
             tvRecyclerView.adapter = adapter
         }
         displayPopularTvShows()
     }
+
     /**
      * Get movies; Observe Live Data changes, and display them.
      *
@@ -78,7 +87,7 @@ class TvShowActivity : AppCompatActivity() {
             tvProgressBar.visibility = View.VISIBLE
             val responseLiveData = tvShowViewModel.getTvShows()
             responseLiveData.observe(this@TvShowActivity, Observer {
-                if(it != null) {
+                if (it != null) {
                     adapter.setList(it)
                     adapter.notifyDataSetChanged()
                     tvProgressBar.visibility = View.GONE
@@ -116,11 +125,12 @@ class TvShowActivity : AppCompatActivity() {
     If not selected, return the regular item.(nothing)
      */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId) {
+        return when (item.itemId) {
             R.id.action_update -> {
                 updateTvShows()
                 true
-            } else -> return super.onOptionsItemSelected(item)
+            }
+            else -> return super.onOptionsItemSelected(item)
         }
     }
 

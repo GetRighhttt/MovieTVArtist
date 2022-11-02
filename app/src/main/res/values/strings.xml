@@ -4,11 +4,11 @@
     <string name="get_a_list_of_our_most_popular_movies">Get a list of our most popular movies!</string>
     <string name="and_get_information_about_some_of_your_favorite_actors">And get information about some of your favorite actors!</string>
     <string name="choose_which_list_you_would_like_to_see_here_are_your_options">Choose which list you would like to see. Click on your choice:</string>
-    <string name="popular_movies_tv_shows_and_actors">Popular Movies, Tv Shows, and Actors!</string>
+    <string name="popular_movies_tv_shows_and_actors">Movies, Tv Shows, and Actors!</string>
     <string name="pick_a_button">Pick a button</string>
-    <string name="actors">Actors</string>
-    <string name="shows">Shows</string>
-    <string name="movies">Movies</string>
+    <string name="actors">Actors!</string>
+    <string name="shows">Shows!</string>
+    <string name="movies">Movies!</string>
     <string name="if_you_re_interested_in_android_development_i_have_a_few_examples_to_learn_from_on_my_github_account_https_github_com_getrighhttt">If you\'re interested in android development, I have a few examples to learn from on my GitHub account: https://github.com/getrighhttt</string>
     <string name="https_github_com_getrighhttthttps_github_com_getrighhttt">https://github.com/getrighhttthttps://github.com/getrighhttt</string>
     <string name="tvshows">TvShows!</string>

@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
@@ -29,6 +30,14 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+        /*
+      Hide action bar and theme(OPTIONAL).
+       */
+//        supportActionBar?.hide()
+//        this.window.setFlags(
+//            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//            WindowManager.LayoutParams.FLAG_FULLSCREEN
+//        )
         alertDialogFunction()
 
         /**
@@ -44,10 +53,6 @@ class HomeActivity : AppCompatActivity() {
             movieButton.setOnClickListener {
                 val intent = Intent(this@HomeActivity, MovieActivity::class.java)
                 startActivity(intent)
-                Toast.makeText(
-                    this@HomeActivity,
-                    "Going to Movies!", Toast.LENGTH_LONG
-                ).show()
                 overridePendingTransition(R.anim.slide_in_left_animation, R.anim.slide_out_left)
             }
 
@@ -58,10 +63,6 @@ class HomeActivity : AppCompatActivity() {
             tvshowButton.setOnClickListener {
                 val intent = Intent(this@HomeActivity, TvShowActivity::class.java)
                 startActivity(intent)
-                Toast.makeText(
-                    this@HomeActivity,
-                    "Going to TvShow!", Toast.LENGTH_LONG
-                ).show()
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right)
             }
 
@@ -72,10 +73,6 @@ class HomeActivity : AppCompatActivity() {
             actorButton.setOnClickListener {
                 val intent = Intent(this@HomeActivity, ActorActivity::class.java)
                 startActivity(intent)
-                Toast.makeText(
-                    this@HomeActivity,
-                    "Going to Actor!", Toast.LENGTH_LONG
-                ).show()
                 overridePendingTransition(R.anim.open_entry, R.anim.close_entry)
             }
 
@@ -113,7 +110,7 @@ class HomeActivity : AppCompatActivity() {
         builder.setPositiveButton("Yes") { dialogInterface, which ->
             Toast.makeText(
                 applicationContext,
-                "I figured you would. =)", Toast.LENGTH_LONG
+                "I knew it!", Toast.LENGTH_SHORT
             ).show()
             dialogInterface.dismiss() // dialog will be dismissed
         }
@@ -122,7 +119,7 @@ class HomeActivity : AppCompatActivity() {
         builder.setNeutralButton("Cancel") { dialogInterface, which ->
             Toast.makeText(
                 applicationContext,
-                "click cancel\n operation cancel", Toast.LENGTH_LONG
+                "click cancel\n operation cancel", Toast.LENGTH_SHORT
             ).show()
             dialogInterface.dismiss()
         }

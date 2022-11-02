@@ -28,7 +28,7 @@ interface APIService {
     suspend fun getMovies(
         @Query(
             "api_key"
-        )apiKey: String
+        ) apiKey: String
     ): Response<MovieList>
 
     /**
@@ -38,7 +38,7 @@ interface APIService {
     suspend fun getTvShows(
         @Query(
             "api_key"
-        )apiKey: String
+        ) apiKey: String
     ): Response<TvShowList>
 
     /**
@@ -48,6 +48,6 @@ interface APIService {
     suspend fun getActors(
         @Query(
             "api_key"
-        )apiKey: String
+        ) apiKey: String
     ): Response<ActorsList>
 }
