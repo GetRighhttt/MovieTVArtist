@@ -30,10 +30,4 @@ a room database. It also has an update button to update each list.</p>
 
 ### APP PREVIEW :
 
-![2022-07-30 (3)](https://user-images.githubusercontent.com/105057858/181905712-9cc3628f-e6c7-4a4a-a8ac-d6d10fae46c4.png)
-
-![2022-07-30 (4)](https://user-images.githubusercontent.com/105057858/181905721-6857e964-336f-466f-b915-0e359b59c349.png)
-
-![2022-07-30 (5)](https://user-images.githubusercontent.com/105057858/181905723-f70a11ae-bd72-4029-91a1-04f8cce61f15.png)
-
-![2022-07-30 (6)](https://user-images.githubusercontent.com/105057858/181905727-f4cf72e6-612f-43c4-b7f6-befcf264d34e.png)
+https://user-images.githubusercontent.com/105057858/236587182-5c2ac53a-b783-4ed5-b6c5-1aa0f8a29c00.mp4
