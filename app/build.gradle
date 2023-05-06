@@ -38,6 +38,7 @@ android {
     buildFeatures { // binding declared
         dataBinding true
     }
+    namespace 'com.example.movietvartist'
 }
 
 dependencies {

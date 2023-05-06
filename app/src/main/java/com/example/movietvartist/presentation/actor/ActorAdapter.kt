@@ -6,6 +6,8 @@ import android.view.animation.AnimationUtils
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.TransitionOptions
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.movietvartist.R
 import com.example.movietvartist.data.model.actors.Actor
 import com.example.movietvartist.data.model.tvshow.TvShow
@@ -57,6 +59,7 @@ class ActorAdapter : RecyclerView.Adapter<ActorAdapter.ActorViewHolder>() {
                 val posterURL = "https://image.tmdb.org/t/p/w500" + actor.profilePath
                 Glide.with(binding.imageView.context)
                     .load(posterURL)
+                    .transition(DrawableTransitionOptions.withCrossFade())
                     .into(binding.imageView)
             }
         }
