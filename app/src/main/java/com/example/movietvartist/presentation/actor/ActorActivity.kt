@@ -1,17 +1,16 @@
 package com.example.movietvartist.presentation.actor
 
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movietvartist.R
 import com.example.movietvartist.databinding.ActivityActorBinding
 import com.example.movietvartist.presentation.di.core.data.Injector
-
 import javax.inject.Inject
 
 /**
@@ -81,11 +80,12 @@ class ActorActivity : AppCompatActivity() {
      * Check if null, if not, set the list and notify data has changed using adapter method.
      */
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun displayPopularActors() {
         binding.apply {
             actorProgressBar.visibility = View.VISIBLE
             val responseLiveData = actorViewModel.getActors()
-            responseLiveData.observe(this@ActorActivity, Observer {
+            responseLiveData.observe(this@ActorActivity) {
                 if(it != null) {
                     adapter.setList(it)
                     adapter.notifyDataSetChanged()
@@ -97,7 +97,7 @@ class ActorActivity : AppCompatActivity() {
                         "No Data available.", Toast.LENGTH_LONG
                     ).show()
                 }
-            })
+            }
         }
     }
 
@@ -140,11 +140,12 @@ class ActorActivity : AppCompatActivity() {
 
    Check if null, if not, set the list and notify data has changed using adapter method
     */
+    @SuppressLint("NotifyDataSetChanged")
     private fun updateActors() {
         binding.apply {
             actorProgressBar.visibility = View.VISIBLE
             val response = actorViewModel.updateActors()
-            response.observe(this@ActorActivity, Observer {
+            response.observe(this@ActorActivity) {
                 if (it != null) {
                     adapter.setList(it)
                     adapter.notifyDataSetChanged()
@@ -156,7 +157,7 @@ class ActorActivity : AppCompatActivity() {
                         "Update didn't work.", Toast.LENGTH_LONG
                     ).show()
                 }
-            })
+            }
         }
     }
 }

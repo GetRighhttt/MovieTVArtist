@@ -1,15 +1,13 @@
 package com.example.movietvartist.presentation.movie
 
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.movietvartist.R
 import com.example.movietvartist.databinding.ActivityMovieBinding
 import com.example.movietvartist.presentation.di.core.data.Injector
@@ -35,15 +33,6 @@ class MovieActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_movie)
-
-        /*
-    Hide action bar and theme(OPTIONAL).
-    */
-//        supportActionBar?.hide()
-//        this.window.setFlags(
-//            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//            WindowManager.LayoutParams.FLAG_FULLSCREEN
-//        )
 
         /**
          * Allowing ourselves access to inject into this activity.
@@ -79,12 +68,13 @@ class MovieActivity : AppCompatActivity() {
      *
      * Check if null, if not, set the list and notify data has changed using adapter method.
      */
+    @SuppressLint("NotifyDataSetChanged")
     private fun displayPopularMovies() {
 
         binding.apply {
             movieProgressBar.visibility = View.VISIBLE
             val responseLiveData = movieViewModel.getMovies()
-            responseLiveData.observe(this@MovieActivity, Observer {
+            responseLiveData.observe(this@MovieActivity) {
                 if (it != null) {
                     adapter.setList(it)
                     adapter.notifyDataSetChanged()
@@ -96,7 +86,7 @@ class MovieActivity : AppCompatActivity() {
                         "No Data available.", Toast.LENGTH_LONG
                     ).show()
                 }
-            })
+            }
         }
     }
 
@@ -141,11 +131,12 @@ class MovieActivity : AppCompatActivity() {
 
     Check if null, if not, set the list and notify data has changed using adapter method
      */
+    @SuppressLint("NotifyDataSetChanged")
     private fun updateMovies() {
         binding.apply {
             movieProgressBar.visibility = View.VISIBLE
             val response = movieViewModel.updateMovies()
-            response.observe(this@MovieActivity, Observer {
+            response.observe(this@MovieActivity) {
                 if (it != null) {
                     adapter.setList(it)
                     adapter.notifyDataSetChanged()
@@ -157,7 +148,7 @@ class MovieActivity : AppCompatActivity() {
                         "Update didn't work.", Toast.LENGTH_LONG
                     ).show()
                 }
-            })
+            }
         }
     }
 

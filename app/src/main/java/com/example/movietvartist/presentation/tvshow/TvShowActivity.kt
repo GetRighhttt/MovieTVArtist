@@ -1,11 +1,11 @@
 package com.example.movietvartist.presentation.tvshow
 
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movietvartist.R
@@ -82,11 +82,12 @@ class TvShowActivity : AppCompatActivity() {
      * Check if null, if not, set the list and notify data has changed using adapter method.
      */
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun displayPopularTvShows() {
         binding.apply {
             tvProgressBar.visibility = View.VISIBLE
             val responseLiveData = tvShowViewModel.getTvShows()
-            responseLiveData.observe(this@TvShowActivity, Observer {
+            responseLiveData.observe(this@TvShowActivity) {
                 if (it != null) {
                     adapter.setList(it)
                     adapter.notifyDataSetChanged()
@@ -98,7 +99,7 @@ class TvShowActivity : AppCompatActivity() {
                         "No Data available.", Toast.LENGTH_LONG
                     ).show()
                 }
-            })
+            }
         }
     }
 
@@ -143,11 +144,12 @@ class TvShowActivity : AppCompatActivity() {
 
    Check if null, if not, set the list and notify data has changed using adapter method
     */
+    @SuppressLint("NotifyDataSetChanged")
     private fun updateTvShows() {
         binding.apply {
             tvProgressBar.visibility = View.VISIBLE
             val response = tvShowViewModel.updateTvShows()
-            response.observe(this@TvShowActivity, Observer {
+            response.observe(this@TvShowActivity) {
                 if (it != null) {
                     adapter.setList(it)
                     adapter.notifyDataSetChanged()
@@ -159,7 +161,7 @@ class TvShowActivity : AppCompatActivity() {
                         "Update didn't work.", Toast.LENGTH_LONG
                     ).show()
                 }
-            })
+            }
         }
     }
 }

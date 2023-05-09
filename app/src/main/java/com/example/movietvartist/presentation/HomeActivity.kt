@@ -2,11 +2,10 @@ package com.example.movietvartist.presentation
 
 import android.app.Dialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.movietvartist.R
 import com.example.movietvartist.databinding.ActivityMainBinding
@@ -51,8 +50,9 @@ class HomeActivity : AppCompatActivity() {
          */
         binding.apply {
             movieButton.setOnClickListener {
+                showProgressDialog()
                 val intent = Intent(this@HomeActivity, MovieActivity::class.java)
-                startActivity(intent)
+                startActivity(intent).also { cancelProgressDialog() }
                 overridePendingTransition(R.anim.slide_in_left_animation, R.anim.slide_out_left)
             }
 
@@ -61,8 +61,9 @@ class HomeActivity : AppCompatActivity() {
              */
 
             tvshowButton.setOnClickListener {
+                showProgressDialog()
                 val intent = Intent(this@HomeActivity, TvShowActivity::class.java)
-                startActivity(intent)
+                startActivity(intent).also { cancelProgressDialog() }
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right)
             }
 
@@ -71,8 +72,9 @@ class HomeActivity : AppCompatActivity() {
              */
 
             actorButton.setOnClickListener {
+                showProgressDialog()
                 val intent = Intent(this@HomeActivity, ActorActivity::class.java)
-                startActivity(intent)
+                startActivity(intent).also { cancelProgressDialog() }
                 overridePendingTransition(R.anim.open_entry, R.anim.close_entry)
             }
 
@@ -95,37 +97,27 @@ class HomeActivity : AppCompatActivity() {
         customProgressDialog = null
     }
 
-    // Method to create an alert Dialog box
     private fun alertDialogFunction() {
-        // Use the Builder class to assign to a variable for construction
         val builder = AlertDialog.Builder(this)
-        // sets the title for the Alert Dialog box
         builder.setTitle("ALERT")
-        // sets the message
         builder.setMessage("Do you think you will love this app?")
-        // sets the icon for the dialog
         builder.setIcon(android.R.drawable.ic_dialog_alert)
 
-        // performing positive action
-        builder.setPositiveButton("Yes") { dialogInterface, which ->
+        builder.setPositiveButton("Yes") { dialogInterface, _ ->
             Toast.makeText(
                 applicationContext,
                 "I knew it!", Toast.LENGTH_SHORT
             ).show()
             dialogInterface.dismiss() // dialog will be dismissed
         }
-
-        // performing cancel action
-        builder.setNeutralButton("Cancel") { dialogInterface, which ->
+        builder.setNeutralButton("Cancel") { dialogInterface, _ ->
             Toast.makeText(
                 applicationContext,
                 "click cancel\n operation cancel", Toast.LENGTH_SHORT
             ).show()
             dialogInterface.dismiss()
         }
-
-        // performing negative action
-        builder.setNegativeButton("No") { dialogInterface, which ->
+        builder.setNegativeButton("No") { dialogInterface, _ ->
             Toast.makeText(
                 applicationContext,
                 "ERRRRROORRR.. You are being dishonest!", Toast.LENGTH_LONG
@@ -133,9 +125,7 @@ class HomeActivity : AppCompatActivity() {
             dialogInterface.dismiss()
         }
 
-        // Once we finish setting up dialog, we Create the AlertDialog
         val alertDialog: AlertDialog = builder.create()
-        // set Other dialog properties
         alertDialog.setCancelable(false) // won't allow user to cancel
         alertDialog.show() // show the dialog to the UI
     }
