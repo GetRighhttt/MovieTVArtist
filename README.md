@@ -2,7 +2,7 @@
 
 ### Description :
 
-<p>This application incorporates professional clean code architectural design techniques.<br></p>
+<p>This application incorporates clean code architectural design techniques.<br></p>
 <p>It receives input from an API, displays 3 different recycler views of the responses from<br>
 those API calls, and saves a cached stored copy of the list, and saves an additional copy in <br>
 a room database. It also has an update button to update each list.</p> 
