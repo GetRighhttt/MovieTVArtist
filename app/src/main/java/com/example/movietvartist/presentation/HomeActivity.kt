@@ -91,7 +91,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     // method to cancel the progress dialog
-    fun cancelProgressDialog() {
+    private fun cancelProgressDialog() {
         if (customProgressDialog != null)
             customProgressDialog?.dismiss()
         customProgressDialog = null
