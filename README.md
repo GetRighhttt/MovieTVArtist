@@ -74,7 +74,7 @@ If you'd like to contribute to Project Title, here are some guidelines:
 
 ### APP PREVIEW :
 
-https://user-images.githubusercontent.com/105057858/236587182-5c2ac53a-b783-4ed5-b6c5-1aa0f8a29c00.mp4
+https://github.com/user-attachments/assets/f4a5a589-9cff-432e-b139-7c8b7b5f2630
 
 ## **Contact**
 
