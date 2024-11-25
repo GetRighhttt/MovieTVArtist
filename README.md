@@ -7,17 +7,10 @@ those API calls, and saves a cached stored copy of the list, and saves an additi
 a room database. It also has an update button to update each list.</p> 
 
 ## **Installation**
-
-
-To install Project Title, follow these steps:
-
- 
 1. Have Android Studio downloaded.
 2. Clone the repository into Android Studio: **`git clone: git@github.com:GetRighhttt/MovieTVArtist.git`**
 
 ## **Usage**
-
-To use Project Title, follow these steps:
 
 1. Open the project in Android Studio.
 
@@ -30,10 +23,6 @@ To use Project Title, follow these steps:
 5. Use the project as desired.
 
 ## **Contributing**
-
-If you'd like to contribute to Project Title, here are some guidelines:
- 
-
 1. Fork the repository.
 
 2. Create a new branch for your changes.
@@ -74,9 +63,9 @@ If you'd like to contribute to Project Title, here are some guidelines:
 
 ### APP PREVIEW :
 
-https://user-images.githubusercontent.com/105057858/236587182-5c2ac53a-b783-4ed5-b6c5-1aa0f8a29c00.mp4
+https://github.com/user-attachments/assets/f4a5a589-9cff-432e-b139-7c8b7b5f2630
 
 ## **Contact**
 
-If you have any questions or comments about Project Title, please contact **stefanbusiness95@gmail.com**.
+If you have any questions or comments, please contact **stefanbusiness95@gmail.com**.
 
